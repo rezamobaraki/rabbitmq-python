@@ -1,56 +1,144 @@
-# rabbitMQ-python
+# RabbitMQ Python Examples
 
-![python](assets/rabbitmq-beginners-updated.png)
+![RabbitMQ Python](assets/rabbitmq-beginners-updated.png)
 
-Hello friends of this [Mr.Rezoo](https://www.linkedin.com/in/reza-mobaraki/)
+A comprehensive collection of RabbitMQ examples and tutorials implemented in Python. This repository demonstrates various messaging patterns and use cases with RabbitMQ message broker.
+
+Created by [Reza Mobaraki](https://www.linkedin.com/in/reza-mobaraki/)
 
 ## Table of contents
 
-* [General info](#General-info)
-* [Technologies](#Technologies)
-* [Help](#Help)
-* [Setup](#Setup)
+* [General info](#general-info)
+* [Technologies](#technologies)
+* [Prerequisites](#prerequisites)
+* [Setup](#setup)
+* [Usage Examples](#usage-examples)
+* [Help](#help)
+* [Learning Resources](#learning-resources)
 * [Credits](#credits)
-* [Contributors](#Contributors)
+* [Contributors](#contributors)
 * [License](#license)
 
 ## General info
 
-Work on rabbitMQ with python language . . .
+This repository contains practical examples of RabbitMQ implementation using Python and the Pika library. Each numbered directory demonstrates different messaging patterns:
+
+- **Directory 1**: Basic message sending and receiving
+- **Directory 2**: Work queues and task distribution  
+- **Directory 3**: Publish/Subscribe pattern
+- **Directory 4**: Routing with direct exchange
+- **Directory 5**: Topic exchanges and pattern matching
+- **Directory 6**: RPC (Remote Procedure Call) pattern
+- **new Sample MQ**: Advanced consumer/producer examples with utilities
+
+These examples progress from simple point-to-point messaging to complex routing and RPC patterns, making it easy to learn RabbitMQ concepts step by step.
 
 ## Technologies
 
-Project is created with:
+This project is built with:
 
-* Python: 3.9
-* pika: 1.2.0
+* **Python**: 3.9+
+* **pika**: 1.2.0 (Python client for RabbitMQ)
+* **pika-stubs**: 0.1.3 (Type hints for pika)
+* **RabbitMQ**: Message broker (requires separate installation)
 
 ## Help
 
-If you are considering a particular method, more modern technology Add to my
-project and send merge request, I will add you in the credits and contributors
-section
+If you find any issues or want to contribute improvements:
+
+1. **Report Issues**: Open an issue on GitHub with detailed description
+2. **Contribute**: Fork the repository, make your changes, and submit a pull request
+3. **Suggest Improvements**: Add modern technologies or messaging patterns
+
+All contributors will be acknowledged in the credits section.
+
+## Learning Resources
+
+* [RabbitMQ Official Tutorial](https://www.rabbitmq.com/tutorials.html)
+* [Pika Documentation](https://pika.readthedocs.io/)
+* [mongard RabbitMQ Course](https://www.mongard.ir/courses/rabbitmq/episode/352/rabbitmq-more/) (Persian)
+
+## Prerequisites
+
+Before running these examples, you need to have RabbitMQ server installed and running:
+
+### Install RabbitMQ
+- **Ubuntu/Debian**: `sudo apt-get install rabbitmq-server`
+- **macOS**: `brew install rabbitmq`
+- **Windows**: Download from [RabbitMQ official website](https://www.rabbitmq.com/download.html)
+- **Docker**: `docker run -d --hostname rabbitmq --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management`
+
+### Start RabbitMQ service
+```bash
+sudo systemctl start rabbitmq-server
+# or
+sudo service rabbitmq-start
+```
 
 ## Setup
 
-* first step : create virtual environment
+* **Step 1**: Create virtual environment
 
-```shell
+```bash
+python -m venv venv
+# or
 virtualenv -p python3 venv 
 ```
 
-* second step : activate virtual environment
+* **Step 2**: Activate virtual environment
 
-```shell
+```bash
+# Linux/macOS
 source venv/bin/activate  
+
+# Windows
+venv\Scripts\activate
 ```
 
-* third step : install package | library from requirements.txt
+* **Step 3**: Install dependencies
 
-```shell
- pip install -r requirements.txt
+```bash
+pip install -r requirements.txt
 ```
-* last step `follow the directories`
+
+* **Step 4**: Run examples
+
+Navigate to any numbered directory and run the examples:
+
+```bash
+# Terminal 1 - Start receiver/consumer
+cd 1
+python receiver.py
+
+# Terminal 2 - Send messages
+cd 1  
+python sender.py
+```
+
+## Usage Examples
+
+Each directory contains specific messaging patterns:
+
+### 1. Hello World (Basic messaging)
+```bash
+cd 1
+python receiver.py  # In terminal 1
+python sender.py    # In terminal 2
+```
+
+### 2. Work Queues
+```bash
+cd 2
+python receiver.py  # Workers (can run multiple)
+python sender.py    # Task producer
+```
+
+### 6. RPC Pattern
+```bash
+cd 6
+python server.py    # RPC server
+python client.py    # RPC client
+```
 
 ## Credits
 
@@ -58,7 +146,7 @@ source venv/bin/activate
 
 ## Contributors
 
-* [MrRezoo](https://github.com/MrRezoo)
+* [rezamobaraki](https://github.com/rezamobaraki)
 
 ## License
 
